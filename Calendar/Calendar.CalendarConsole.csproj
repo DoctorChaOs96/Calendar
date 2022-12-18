@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Calendar.ConsoleArgumentsParser\Calendar.ConsoleArgumentsParser.csproj" />
+    <ProjectReference Include="..\Calendar.Contracts\Calendar.Contracts.csproj" />
+    <ProjectReference Include="..\Calendar.Domain\Calendar.Domain.csproj" />
   </ItemGroup>
 
 </Project>

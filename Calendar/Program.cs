@@ -1,12 +1,15 @@
-﻿using Calendar.ConsoleArgumentsParser;
+﻿using Calendar.CalendarConsole.ReadMode;
+using Calendar.CalendarConsole.WriteMode;
+using Calendar.ConsoleArgumentsParser;
+using System;
 
-namespace Calendar
+namespace Calendar.CalendarConsole
 {
     internal class Program
     {
         /*
             create a Calendar that will help users to book a room for a meeting (like Outlook). Create three projects:
-            Calendar.Console - user interface
+            Calendar.CalendarConsole - user interface
             Calendar.Domain (BLL) - application logic
             Calendar.Contracts (Entities) - models
             create two application modes: readonly and RW mode.
@@ -28,6 +31,22 @@ namespace Calendar
         {
             var option = Parser.Parse(args);
 
+            IApp app;
+
+            switch (option.AccessMode)
+            {
+                default:
+                case Calendaer.ConsoleArgumentsParser.AccessMode.Read:
+                    app = new ReadModeApp();
+                    break;
+                case Calendaer.ConsoleArgumentsParser.AccessMode.Write:
+                    app = new WriteModeApp();
+                    break;
+            }
+
+            app.Run();
+
+            Console.ReadKey();
         }
     }
 }

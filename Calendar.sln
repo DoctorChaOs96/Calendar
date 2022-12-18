@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar", "Calendar\Calendar.csproj", "{E804F401-2EFF-434F-91D1-B17C8DE0B88F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.CalendarConsole", "Calendar\Calendar.CalendarConsole.csproj", "{E804F401-2EFF-434F-91D1-B17C8DE0B88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Domain", "Calendar.Domain\Calendar.Domain.csproj", "{203F0AF5-5C94-42BF-B3DF-AFAFCA4A2C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.Domain", "Calendar.Domain\Calendar.Domain.csproj", "{203F0AF5-5C94-42BF-B3DF-AFAFCA4A2C48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.Contracts", "Calendar.Contracts\Calendar.Contracts.csproj", "{DA28C1E3-AA28-45FD-A3C9-2551FE0E013B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.Contracts", "Calendar.Contracts\Calendar.Contracts.csproj", "{DA28C1E3-AA28-45FD-A3C9-2551FE0E013B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.ConsoleArgumentsParser", "Calendar.ConsoleArgumentsParser\Calendar.ConsoleArgumentsParser.csproj", "{57D1C327-E867-4B1F-BEAE-3A7E64CD321B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.ConsoleArgumentsParser", "Calendar.ConsoleArgumentsParser\Calendar.ConsoleArgumentsParser.csproj", "{57D1C327-E867-4B1F-BEAE-3A7E64CD321B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

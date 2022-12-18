@@ -3,13 +3,28 @@ using System.Text.Json;
 
 namespace Calendar.Domain
 {
-    public class Storage
+    internal class Storage : IDisposable
     {
         private readonly string _dbPath;
 
-        public Storage(string path)
+        private string FullPath => _dbPath + "db.json";
+
+        public Storage(string path = "Storage/")
         {
             _dbPath = path;
+
+            if(!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            if (!File.Exists(FullPath))
+            {
+                File.Create(FullPath).Close();
+                File.WriteAllText(FullPath, JsonSerializer.Serialize(new Dump(new List<Room>(0), new List<Event>(0))));
+            }
+
+            Refresh();
         }
 
         public List<Room> Rooms { get; set; }
@@ -20,12 +35,12 @@ namespace Calendar.Domain
         {
             var dump = new Dump(Rooms, Events);
 
-            File.WriteAllText(_dbPath, JsonSerializer.Serialize<Dump>(dump));
+            File.WriteAllText(FullPath, JsonSerializer.Serialize<Dump>(dump));
         }
 
         public void Refresh()
         {
-            var dumpText = File.ReadAllText(_dbPath);
+            var dumpText = File.ReadAllText(FullPath);
 
             var dump = JsonSerializer.Deserialize<Dump>(dumpText);
 
@@ -34,6 +49,12 @@ namespace Calendar.Domain
 
             Rooms = dump.Rooms;
             Events = dump.Events;
+        }
+
+        public void Dispose()
+        {
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
         }
 
         private class Dump
